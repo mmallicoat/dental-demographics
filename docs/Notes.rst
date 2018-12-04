@@ -7,7 +7,9 @@ Todo
 *   Tabulate these statistics for all census blocks in KS and MO,
     for the states of KS and MO, the Midwest division, and the entire US:
     median age, % of population above age of X, median household income.
-*   Locate the offices L is aware of in the census blocks;
+    Will do this using ACS, at PUMA granularity. If necessary, can repeat
+    using Census Demographic Profile at lower granularity.
+*   Locate the offices L is aware of in the census blocks / PUMAs;
     show a table of the offices and the regional averages
 *   Maybe try to build a map with outlines for each census block
     and color scales to show each variable, each one in a separate "layer."
@@ -26,6 +28,48 @@ aggregation is.
 Wikipedia__ says that age and sex data are collected.
 
 .. __: https://en.wikipedia.org/wiki/List_of_household_surveys_in_the_United_States
+
+Datasets are `here <https://www.census.gov//programs-surveys/decennial-census/data/datasets.2010.html>`__.
+Documentation `here <https://www.census.gov/programs-surveys/decennial-census/technical-documentation/complete-technical-documents.html>`__.
+
+The census data is more granular than PUMS, I think, going down
+to the census tract/block level. However, it does not collect
+as much information on each person; e.g., I think income is not
+collected.
+
+Based on the data dictionary in the documentation for the Summary
+File 1 (SF1), it seems that only population, housing counts, and
+area are collected, coded by geography, Congressional district,
+and other info. However, the abstract says that age, race, and
+other info (but not income) are collected.
+
+The census also releases a 10% sample of the data through PUMS.
+The lowest granularity is the PUMA: "The Public Use Microdata
+Sample (PUMS) files contain geographic units known as Public Use
+Microdata Areas (PUMAs). To maintain the confidentiality of the
+PUMS data, a minimum population threshold of 100,000 is set for
+PUMAs."
+
+Census - Demographic Profile
+````````````````````````````
+
+The Demographic Profile Summary File has demographic information,
+including age and race.
+
+The summary level 040 files do not include ZIP code. I think
+summary level 871 does. However, census blocks *do* roll up to ZIP
+codes.
+
+Data includes the geographic center of the area (e.g. census
+block), I think. does to the ZIP code level, perhaps. I don't know
+where to get explicit boundaries of a census block. The "Tiger"
+viewer lets you see them, though.
+
+In the geographic header file, if a field is not included for a
+record, blanks are placed.
+
+This file is joined with a CSV by the logical record number. The
+documentation also describes what the fields in the CSV are.
 
 American Community Survey
 `````````````````````````
@@ -76,4 +120,9 @@ These contain a document "PUMS Estimates for User Verification"
 with values for checking calculations. See chapters 11 and 12
 of the "ACS Design and Methodology" report for mroe technical
 details, such as to the weighting of the samples.
+
+The presentation "Introduction to the American Community Survey
+Public Use Microdata Sample (PUMS) Files" says that the microdata
+(PUMS) has "[n]o geographies smaller than PUMAs." "PUMS is **not**
+designed for statistical analysis of small geographic areas."
 
