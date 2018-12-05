@@ -4,15 +4,21 @@ Notes
 Todo
 ----
 
-*   Tabulate these statistics for all census blocks in KS and MO (and IL?),
-    for the states of KS and MO, the Midwest division, and the entire US:
-    median age, % of population above age of X, median household income.
-    Will do this using ACS, at PUMA granularity. If necessary, can repeat
-    using Census Demographic Profile at lower granularity.
+*   Get statistics for Midwest and US total from Fact Finder
+*   Compile statistics into table
 *   Locate the offices L is aware of in the census blocks / PUMAs;
     show a table of the offices and the regional averages
 *   Maybe try to build a map with outlines for each census block
     and color scales to show each variable, each one in a separate "layer."
+*   Adjust income figures for inflation; check median income against Fact Finder
+
+Done
+````
+*   Tabulate these statistics for all census blocks in KS and MO (and IL?),
+    for the states of KS and MO:
+    median age, % of population above age of X, median household income.
+    Will do this using ACS, at PUMA granularity. If necessary, can repeat
+    using Census Demographic Profile at lower granularity.
 
 
 Census Data
@@ -102,6 +108,7 @@ Downloaded:
 *   ftp://ftp2.census.gov/programs-surveys/acs/summary_file/2016/data/2016_5yr_Summary_FileTemplates.zip
 *   ftp://ftp2.census.gov/programs-surveys/acs/data/pums/2016/5-Year/csv_pks.zip
 *   ftp://ftp2.census.gov/programs-surveys/acs/data/pums/2016/5-Year/csv_hks.zip
+*   ftp://ftp2.census.gov/programs-surveys/acs/summary_file/2017/data/1_year_entire_sf/All_Geographies.zip
 
 Geographic layout of counties, PUMAs, census tracks, etc. can be
 viewed on TigerWeb_.
