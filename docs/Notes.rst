@@ -4,7 +4,7 @@ Notes
 Todo
 ----
 
-*   Tabulate these statistics for all census blocks in KS and MO,
+*   Tabulate these statistics for all census blocks in KS and MO (and IL?),
     for the states of KS and MO, the Midwest division, and the entire US:
     median age, % of population above age of X, median household income.
     Will do this using ACS, at PUMA granularity. If necessary, can repeat
