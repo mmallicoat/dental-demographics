@@ -8,16 +8,10 @@ def main(argv):
     datafile = os.path.abspath(argv[1])  # ACS CSV
     outfile = os.path.abspath(argv[2])
     
-    # TODO: pass state name and data file as arguments
-
-    # NOTE: Currently most be executed from project root
-#    exe_dir = os.path.basename(__file__)
-#    root_dir = os.path.abspath(os.path.join(exe_dir, '..'))
-#    data_dir = os.path.join(root_dir, 'data', 'raw', 'ACS')
-#    out_dir = os.path.join(root_dir, 'models')
-
     # Person Records of ACS
     df = pd.read_csv(datafile)
+    # Inflation-adjust income to 2016 dollars
+    df.PINCP = df.PINCP * df.ADJINC * 10 ** -6
 
     # Calc median household income by PUMA
     group_vars = ['PUMA', 'SERIALNO']

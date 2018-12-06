@@ -4,22 +4,24 @@ Notes
 Todo
 ----
 
-*   Get statistics for Midwest and US total from Fact Finder
 *   Compile statistics into table
 *   Locate the offices L is aware of in the census blocks / PUMAs;
-    show a table of the offices and the regional averages
+    send L a table of the offices and the regional averages
 *   Maybe try to build a map with outlines for each census block
     and color scales to show each variable, each one in a separate "layer."
+    (Search Census sites for info on "shape files" and GIS.)
 *   Adjust income figures for inflation; check median income against Fact Finder
+*   Repeat statistics at the lower grain of census block/tract using Census data?
+*   Maybe redo household income calculations using Household records
+    instead of Person records. My estimates do not match FactFinder.
+*   Interpolate median age calculate: assume people are on average halfway
+    through their age-year? Check against FactFinder.
 
 Done
 ````
-*   Tabulate these statistics for all census blocks in KS and MO (and IL?),
-    for the states of KS and MO:
+*   Tabulate these statistics for all PUMAs in KS and MO using ACS:
     median age, % of population above age of X, median household income.
-    Will do this using ACS, at PUMA granularity. If necessary, can repeat
-    using Census Demographic Profile at lower granularity.
-
+*   Get statistics for Midwest and US total from FactFinder
 
 Census Data
 -----------
