@@ -16,6 +16,7 @@ Todo
     instead of Person records. My estimates do not match FactFinder.
 *   Interpolate median age calculate: assume people are on average halfway
     through their age-year? Check against FactFinder.
+*   Add to state reports a column for "State" with two-letter state code
 
 Done
 ````

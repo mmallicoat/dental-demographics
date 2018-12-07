@@ -1,0 +1,70 @@
+State,PUMA,Area,Features
+KS,100,Northwest Kansas,
+KS,200,North+AC0-Central Kansas,Salina
+KS,300,Riley County and surrounding,+ACI-Manhattan, Junction City+ACI-
+KS,400,Northeast Kansas,Atchison
+KS,500,Wyandotte County,+ACI-Kansas City, Kansas+ACI-
+KS,601,NW Johnson County,+ACI-Shawnee, Lenexa+ACI-
+KS,602,NE Johnson County,+ACI-Overland Park, Mission, Leawood+ACI-
+KS,603,SW Johnson County,+ACI-Olathe, Gardner+ACI-
+KS,604,SE Johnson County,+ACI-Overland Park, Stilwell+ACI-
+KS,700,Douglas County,Lawrence
+KS,801,Topeka,
+KS,802,Shawnee County excluding Topeka,
+KS,900,Interior eastern Kansas,Emporia
+KS,1000,Interior central Kansas,Hutchinson
+KS,1100,South+AC0-Central Kansas,Great Bend
+KS,1200,Southwest Kansas,
+KS,1301,Northwest of Wichita,Newton
+KS,1302,Northeast of Wichita,
+KS,1303,Wichita,
+KS,1304,South of Wichita,
+KS,1400,East+AC0-Central Kansas,Fort Scott
+KS,1500,Southeast Kansas,Pittsburg
+MO,100,Northwest Missouri,
+MO,200,North of Kansas City,
+MO,300,Northeast Missouri,
+MO,400,Northwest of St. Louis,
+MO,500,Surrounding Jefferson City,Jefferson City
+MO,600,Boone County,Columbia
+MO,700,West of Columbia,
+MO,800,East of Kansas City,
+MO,901,Clay County excluding North Kansas City,
+MO,902,Northland,+ACI-North Kansas City, Gladstone+ACI-
+MO,903,Platte County,
+MO,1001,Northern Kansas City,+ACI-Midtown, downtown Kansas city+ACI-
+MO,1002,Central Jackson County,Independence
+MO,1003,Eastern Jackson County,Blue Springs
+MO,1004,South+AC0-Central Jackson County,Lee's Summit
+MO,1005,Southern Kansas City,
+MO,1100,South of Kansas City,
+MO,1200,West+AC0-Central Missouri,
+MO,1300,Western interior Missouri,
+MO,1400,Central Missouri,
+MO,1500,Central Missouri,
+MO,1600,Southwest of St. Louis,
+MO,1701,St. Charles County,
+MO,1702,St. Charles County,
+MO,1703,St. Charles County,
+MO,1801,St. Louis County,
+MO,1802,St. Louis County,
+MO,1803,St. Louis County,
+MO,1804,St. Louis County,
+MO,1805,St. Louis County,
+MO,1806,St. Louis County,
+MO,1807,St. Louis County,
+MO,1808,St. Louis County,
+MO,1901,North St. Louis,
+MO,1902,South St. Louis,
+MO,2001,North Jefferson County,
+MO,2002,South Jefferson County,
+MO,2100,South of St. Louis,
+MO,2200,Southeast Missouri,
+MO,2300,Southeast Missouri,
+MO,2400,Southeast Missouri,
+MO,2500,South+AC0-Central Missouri,
+MO,2601,Surrounding Springfield,
+MO,2602,North Springfield,
+MO,2603,South Springfield,
+MO,2700,Southwest Missouri,
+MO,2800,Southwest Missouri,

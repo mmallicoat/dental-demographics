@@ -75,7 +75,7 @@ def main(argv):
 
     # Rename columns
     median_age.columns = ['Median Age']
-    old_percent.columns = ['Percent Age %s or Older' % threshold]
+    old_percent.columns = ['Percent Aged %s or Older' % threshold]
 
     # Join results
     stats = pd.concat([population, median_hhi, median_age, old_percent], axis=1)
