@@ -4,25 +4,41 @@ Notes
 Todo
 ----
 
-*   Compile statistics into table
-*   Locate the offices L is aware of in the census blocks / PUMAs;
-    send L a table of the offices and the regional averages
+*   Get lat-long coordinates of each dental practice scraped
+*   Find which PUMA they fall into using polygon coordinates from shapefile
+*   Calculate number of patients per practice; estimate dentists per practice
 *   Maybe try to build a map with outlines for each census block
     and color scales to show each variable, each one in a separate "layer."
     (Search Census sites for info on "shape files" and GIS.)
-*   Adjust income figures for inflation; check median income against Fact Finder
-*   Repeat statistics at the lower grain of census block/tract using Census data?
-*   Maybe redo household income calculations using Household records
-    instead of Person records. My estimates do not match FactFinder.
 *   Interpolate median age calculate: assume people are on average halfway
     through their age-year? Check against FactFinder.
 *   Add to state reports a column for "State" with two-letter state code
 
+Won't Do
+````````
+*   Repeat statistics at the lower grain of census block/tract using Census data?
+*   Maybe redo household income calculations using Household records
+    instead of Person records. My estimates do not match FactFinder.
+
 Done
 ````
+*   Adjust income figures for inflation; check median income against Fact Finder
+*   Locate the offices L is aware of in the census blocks / PUMAs;
+    send L a table of the offices and the regional averages
+*   Compile statistics into table
 *   Tabulate these statistics for all PUMAs in KS and MO using ACS:
     median age, % of population above age of X, median household income.
 *   Get statistics for Midwest and US total from FactFinder
+
+GIS Libraries
+-------------
+
+*   `GeoPandas <http://geopandas.org/>`__: depends on ``shapely`` and ``fiona``
+*   `Shapely <https://shapely.readthedocs.io/en/stable/>`__
+*   `Fiona <https://fiona.readthedocs.io/en/latest/>`__
+*   `pyshp <https://github.com/GeospatialPython/pyshp>`__
+*   `geo_interface <https://gist.github.com/sgillies/2217756>`__
+*   `GDAL/OGR <https://gdal.org>`__
 
 Census Data
 -----------
