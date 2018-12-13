@@ -4,24 +4,25 @@ Notes
 Todo
 ----
 
-*   Get lat-long coordinates of each dental practice scraped
-*   Find which PUMA they fall into using polygon coordinates from shapefile
-*   Calculate number of patients per practice; estimate dentists per practice
+*   Estimate dentists per practice and add pop to dentist ratio
+*   Collect additional dental locations and re-run PUMA lookup
+
+Maybe
+`````
 *   Maybe try to build a map with outlines for each census block
     and color scales to show each variable, each one in a separate "layer."
     (Search Census sites for info on "shape files" and GIS.)
 *   Interpolate median age calculate: assume people are on average halfway
     through their age-year? Check against FactFinder.
-*   Add to state reports a column for "State" with two-letter state code
-
-Won't Do
-````````
-*   Repeat statistics at the lower grain of census block/tract using Census data?
-*   Maybe redo household income calculations using Household records
-    instead of Person records. My estimates do not match FactFinder.
 
 Done
 ````
+*   Join this number with other PUMA statistics;
+    calculate the pop to practice ratio
+*   Calculate number of practices for each PUMA
+*   Add to state reports a column for "State" with two-letter state code [actually used the state code instead]
+*   Get lat-long coordinates of each dental practice scraped
+*   Find which PUMA they fall into using polygon coordinates from shapefile
 *   Adjust income figures for inflation; check median income against Fact Finder
 *   Locate the offices L is aware of in the census blocks / PUMAs;
     send L a table of the offices and the regional averages
@@ -29,6 +30,12 @@ Done
 *   Tabulate these statistics for all PUMAs in KS and MO using ACS:
     median age, % of population above age of X, median household income.
 *   Get statistics for Midwest and US total from FactFinder
+
+Won't Do
+````````
+*   Repeat statistics at the lower grain of census block/tract using Census data?
+*   Maybe redo household income calculations using Household records
+    instead of Person records. My estimates do not match FactFinder.
 
 GIS Libraries
 -------------

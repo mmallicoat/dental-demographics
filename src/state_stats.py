@@ -80,9 +80,16 @@ def main(argv):
     # Join results
     stats = pd.concat([population, median_hhi, median_age, old_percent], axis=1)
 
-    # Write out results
-    stats.to_csv(outfile, index_label='PUMA')
+    # Add state code
+    fields = ['State']
+    fields.extend(stats.columns)
+    state_code = np.unique(df.ST)
+    assert len(state_code) == 1, "Multiple state codes in state data"
+    stats['State'] = state_code[0]
+    stats = stats[fields]
 
+    # Format and write out results
+    stats.to_csv(outfile, index_label='PUMA')
 
 # Calculate median from Series of counts in sample, with values as index
 def median_grouped(counts):

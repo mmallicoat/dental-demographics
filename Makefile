@@ -21,3 +21,11 @@ models/mo_puma_stats.csv:
 # Assign PUMAs to dental locations
 data/interim/dentist_loc.json: data/raw/dentist_loc.json
 	python src/puma_lookup.py data/raw data/interim
+
+# Calculate stats from practice data
+models/practice_stats.csv: data/interim/dentist_loc.json
+	python src/practice_stats.py data/interim models
+
+# Compile statistics
+models/combined_stats.csv: models/ks_puma_stats.csv models/mo_puma_stats.csv models/practice_stats.csv
+	python src/compile_stats.py models models
