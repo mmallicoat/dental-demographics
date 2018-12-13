@@ -17,3 +17,7 @@ models/ks_puma_stats.csv:
 # Stats for MO
 models/mo_puma_stats.csv:
 	python src/state_stats.py data/raw/ss16pmo.csv models/mo_puma_stats.csv
+
+# Assign PUMAs to dental locations
+data/interim/dentist_loc.json: data/raw/dentist_loc.json
+	python src/puma_lookup.py data/raw data/interim
