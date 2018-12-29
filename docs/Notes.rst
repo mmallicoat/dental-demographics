@@ -3,9 +3,8 @@ Notes
 
 Todo
 ----
-
-*   Count practices, not dentists; use address (including suite number)
-*   Collect additional dental location lat/long and re-run PUMA lookup
+*   Check practice_stats.py for near-misses in address collision
+*   Add PUMA descriptions from shapefiles to combined_stats.csv
 
 Won't Do
 ````````
@@ -21,6 +20,8 @@ Maybe
 
 Done
 ````
+*   Collect additional dental location lat/long; and re-run PUMA lookup
+*   Count practices, not dentists; use address (including suite number)
 *   Join this number with other PUMA statistics;
     calculate the pop to practice ratio
 *   Calculate number of practices for each PUMA

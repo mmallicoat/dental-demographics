@@ -1,5 +1,3 @@
-# See: https://gis.stackexchange.com/questions/208546/check-if-a-point-falls-within-a-multipolygon-with-python
-
 from shapely.geometry import Polygon, Point
 import fiona
 import json
@@ -7,13 +5,8 @@ import os
 import sys
 import pdb
 
-    # TODO
-    # Read in dentist_loc.json
-    # For each record, run through polygons and check if interior
-    # (Need to check Missouri PUMAs, too)
-    # If found, add puma code to the dictionary
-    # At end, write out modified json file
-    
+# See: https://gis.stackexchange.com/questions/208546/check-if-a-point-falls-within-a-multipolygon-with-python
+
 def main(argv):
 
     datadir = os.path.abspath(argv[1])
@@ -50,10 +43,10 @@ def main(argv):
 
     # Assign PUMAs to each location
     for loc in locs:
-        if 'lat' not in loc.keys() or 'lon' not in loc.keys():
-            # lat and long are not available for the location
-            loc['state_code'] = 'NA'
-            loc['puma_code'] = 'NA'
+        if loc['lat'] == 'NA' or loc['lon'] == 'NA':
+            # Assumes that each record has lat and lon fields
+            # If either is NA, skip this record
+            pass
         else:
             # search for lat and long in PUMAs
             point = Point(float(loc['lon']), float(loc['lat']))
@@ -61,7 +54,7 @@ def main(argv):
                 if puma['polygon'].contains(point):
                     loc['state_code'] = puma['state_code']
                     loc['puma_code'] = puma['puma_code']
-        # NOTE: There is an edge case where the location has lat and long
+        # NOTE: There is an edge case where the location has lat/long
         #       but is not found in any PUMA in KS or MO.
         
     # Write out modified location file

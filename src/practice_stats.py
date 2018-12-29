@@ -1,5 +1,7 @@
 import pandas as pd
+import numpy as np
 import json
+import re
 import os
 import sys
 import pdb
@@ -16,25 +18,27 @@ def main(argv):
     locs = json.load(open(locfile, 'r'))
     df = pd.DataFrame.from_dict(locs)
     # Convert PUMA/state codes from string to integers
-    convert = lambda x: x if x == 'NA' else int(x)
+    convert = lambda x: x if x is np.nan else int(x)
     df.state_code = df.state_code.apply(convert)
     df.puma_code = df.puma_code.apply(convert)
 
     # Extract information from street address field
+    df['street_number'] = np.nan
+    df['street_name'] = ''
+    df['unit_type'] = ''
+    df['unit_id'] = ''
     for i in df.index:
         addr_dict = address_regex(df.loc[i]['street_address'])
-        if addr_dict is not None:
-            # Add fields to df
-            df.loc[i]['street_number'] = addr_dict['street_number']
-            df.loc[i]['street_name'] = addr_dict['street_name']
-            if addr_dict['unit_type'] is not None:
-                df.loc[i]['unit_type'] = addr_dict['unit_type']
-                df.loc[i]['unit_id'] = addr_dict['unit_id']
+        if addr_dict:
+            df.at[i, 'street_number'] = addr_dict['street_number']
+            df.at[i, 'street_name'] = addr_dict['street_name']
+            if 'unit_type' in addr_dict.keys():
+                df.at[i, 'unit_type'] = addr_dict['unit_type']
+                df.at[i, 'unit_id'] = addr_dict['unit_id']
 
-    # De-depulicate addresses for counting practices
-    # TODO: remove duplicates
-    # Use multi-key: street_number, street_name, unit_id, and zip_code
-    # Drop duplicates
+    # Drop depulicate addresses for counting practices
+    keys = ['street_number', 'street_name', 'unit_id', 'zip_code']
+    df.drop_duplicates(subset=keys, keep='first', inplace=True)
 
     # Aggregate by state and PUMA
     group_vars = ['state_code', 'puma_code']
@@ -44,14 +48,6 @@ def main(argv):
     # Format and write out results
     df_grouped.columns = ['Practice Count']
     df_grouped.to_csv(outfile, index_label=['State', 'PUMA'])
-
-if __name__ == '__main__':
-    main(sys.argv)
-
-# Build canonical address for de-duplication
-def build_address(loc_dict):
-    address = loc_dict['street_address']
-    addr_dict = address_regex(address)
 
 def address_regex(address):  # takes string, returns dict
     # Two top-level regexes
@@ -92,3 +88,5 @@ def address_regex(address):  # takes string, returns dict
 
     return addr_dict
         
+if __name__ == '__main__':
+    main(sys.argv)
