@@ -4,8 +4,12 @@ Notes
 Todo
 ----
 
+*   Count practices, not dentists; use address (including suite number)
+*   Collect additional dental location lat/long and re-run PUMA lookup
+
+Won't Do
+````````
 *   Estimate dentists per practice and add pop to dentist ratio
-*   Collect additional dental locations and re-run PUMA lookup
 
 Maybe
 `````
@@ -36,6 +40,11 @@ Won't Do
 *   Repeat statistics at the lower grain of census block/tract using Census data?
 *   Maybe redo household income calculations using Household records
     instead of Person records. My estimates do not match FactFinder.
+
+Lists of Dentists
+-----------------
+
+*   https://www.healthgrades.com
 
 GIS Libraries
 -------------
