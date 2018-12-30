@@ -17,13 +17,12 @@ def main(argv):
     # Read in state files, with index fields set
     ks_df = pd.read_csv(ks_file, index_col=['State', 'PUMA'])
     mo_df = pd.read_csv(mo_file, index_col=['State', 'PUMA'])
-    
+
     # Read in practice file, setting data types of index fields
     pract_df = pd.read_csv(practice_file)
     pract_df.dropna(inplace=True)
-    pract_df.State = pract_df.State.apply(int)
-    convert = lambda x: str(int(x))
-    pract_df.PUMA = pract_df.PUMA.apply(convert)
+    # Pad PUMA code with zeros
+    pract_df.PUMA = pract_df.PUMA.apply(lambda x: str(x).zfill(5))
     pract_df.set_index(['State', 'PUMA'], inplace=True)
 
     # Join statistics by State and PUMA code

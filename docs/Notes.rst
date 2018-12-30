@@ -5,6 +5,7 @@ Todo
 ----
 *   Check practice_stats.py for near-misses in address collision
 *   Add PUMA descriptions from shapefiles to combined_stats.csv
+*   Visualizations in QGIS
 
 Won't Do
 ````````
@@ -41,6 +42,26 @@ Won't Do
 *   Repeat statistics at the lower grain of census block/tract using Census data?
 *   Maybe redo household income calculations using Household records
     instead of Person records. My estimates do not match FactFinder.
+
+QGIS
+----
+
+To add attribute-only table from CSV: Layers > Create Layer > Create a Layer
+from Delimited Text File. Select "No Geometry."
+
+To Join: Go to Layers panel, right click on a layer and select Properties. Go
+to Join and Join to the added attribute-only layer on desired key.
+
+In Field Calculator, you can add a virtual field computed from other attributes.
+These are accesible in the Style menu.
+
+Styles can be saved under names so that the different views are available
+for a single vector layer.
+
+To add color scales: in Layer panel, right click on a layer and select
+Properties; go to Style tab. Select "Graduated" in dropdown at top.
+
+Shapefiles can be merged under Vectors > Data Management.
 
 Lists of Dentists
 -----------------

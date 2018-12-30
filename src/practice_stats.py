@@ -17,10 +17,6 @@ def main(argv):
     # Read in dental practice data from JSON
     locs = json.load(open(locfile, 'r'))
     df = pd.DataFrame.from_dict(locs)
-    # Convert PUMA/state codes from string to integers
-    convert = lambda x: x if x is np.nan else int(x)
-    df.state_code = df.state_code.apply(convert)
-    df.puma_code = df.puma_code.apply(convert)
 
     # Extract information from street address field
     df['street_number'] = np.nan

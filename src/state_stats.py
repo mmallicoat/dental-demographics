@@ -12,6 +12,9 @@ def main(argv):
     df = pd.read_csv(datafile)
     # Inflation-adjust income to 2016 dollars
     df.PINCP = df.PINCP * df.ADJINC * 10 ** -6
+    # Pad state and PUMA codes with zeros
+    df.ST = df.ST.apply(lambda x: str(x).zfill(2))
+    df.PUMA = df.PUMA.apply(lambda x: str(x).zfill(5))
 
     # Calc median household income by PUMA
     group_vars = ['PUMA', 'SERIALNO']
