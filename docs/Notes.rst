@@ -3,9 +3,10 @@ Notes
 
 Todo
 ----
+*   Visualizations in QGIS
+*   Writeup
 *   Check practice_stats.py for near-misses in address collision
 *   Add PUMA descriptions from shapefiles to combined_stats.csv
-*   Visualizations in QGIS
 
 Won't Do
 ````````
