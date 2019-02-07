@@ -3,14 +3,13 @@ Notes
 
 Todo
 ----
-*   Visualizations in QGIS
 *   Writeup
-*   Check practice_stats.py for near-misses in address collision
-*   Add PUMA descriptions from shapefiles to combined_stats.csv
 
 Won't Do
 ````````
+*   Add PUMA descriptions from shapefiles to combined_stats.csv
 *   Estimate dentists per practice and add pop to dentist ratio
+*   Check practice_stats.py for near-misses in address collision
 
 Maybe
 `````
@@ -22,6 +21,7 @@ Maybe
 
 Done
 ````
+*   Visualizations in QGIS
 *   Collect additional dental location lat/long; and re-run PUMA lookup
 *   Count practices, not dentists; use address (including suite number)
 *   Join this number with other PUMA statistics;
@@ -47,7 +47,7 @@ Won't Do
 QGIS
 ----
 
-To add attribute-only table from CSV: Layers > Create Layer > Create a Layer
+To add attribute-only table from CSV: Layer > Add Layer > Create a Layer
 from Delimited Text File. Select "No Geometry."
 
 To Join: Go to Layers panel, right click on a layer and select Properties. Go
@@ -63,6 +63,22 @@ To add color scales: in Layer panel, right click on a layer and select
 Properties; go to Style tab. Select "Graduated" in dropdown at top.
 
 Shapefiles can be merged under Vectors > Data Management.
+
+Show/hide panels: View > Panels
+
+Combined Shapefile Field Mapping
+````````````````````````````````
+
+======  =================
+KS-MO   Original
+======  =================
+s	state
+1	population
+2	median hhi
+3	median age
+4	percent 60+
+5	practice count
+======  =================
 
 Lists of Dentists
 -----------------
