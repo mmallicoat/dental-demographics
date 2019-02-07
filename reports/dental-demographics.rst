@@ -1,12 +1,13 @@
 :title: Dental Demographics
 :date: 2018-12-31
+:modified: 2019-02-07
 :category: Projects
 :slug: dental-demographics
 
 Dental Demographics
 ===================
 
-My brother is soon graduating from dental school, so he is
+My brother is graduating from dental school in 2019, so he is
 interviewing with dental practices for a potential place to work.
 The impetetus for this project was discussions with him on the
 problem of finding an optimal location for a dental practice.
@@ -16,6 +17,9 @@ actually provide, and the amount of patients each dental practice
 cares for varies from practice to practice, a dentist's income is
 very location-dependent.
 
+All of the code for this project can be found on Github_.
+
+.. _Github: https://github.com/mmallicoat/dental-demographics
 
 American Community Survey
 -------------------------
@@ -33,11 +37,11 @@ PUMAs do not cross state or county lines, so the data can be
 aggregated at that level. The boundaries also do not cross the
 Census Blocks and Census Tracts used in the Decennial Census. [#]_
 
-.. [#] They do, however, cross the boundaries of ZIP codes.
+.. figure:: ./figures/data-geo-hierarchy.jpg
+   :alt: geographic hierarchy in data
+   :align: center
 
-.. Insert image showing granularities?
-   Would need comment pointing out the the PUMA falls between
-   County and Census Tract.
+   The PUMA falls between the County and Census Tract granularities.
 
 The ACS replacted the census "long form" in 2010. It contains
 many more variables than the Census, but only for a sample of
@@ -47,23 +51,24 @@ the Census.
 
 The ACS data is published online and is available by HTTP or FTP.
 
+.. [#] They do, however, cross the boundaries of ZIP codes.
+
 Income and Age
 --------------
 
-The problem in question is which geographic regions provide the best opportunity for the placement of a dental practice.
+The problem in question is which geographic regions provide the best
+opportunity for the placement of a dental practice.
 
-Most dental practices in the United States are privately owned
-[#]_. A sole dentist or partnership of dentists will finance
+Most dental practices in the United States are privately owned.
+A sole dentist or partnership of dentists will finance
 the opening of a new dental practice themselves. Placing the
 practice in a location that it will be profitable is an important
 consideration.
 
-.. [#] Cite stat?
-
 Areas with higher incomes will spend more on dental care than
 lower incomes. This makes sense, since the socialized medical
-problems in the US (e.g., Medicaid and Medicare) do not generally
-provide dental insurance, [#]_ so the payments for dental services
+programs in the US (e.g., Medicaid and Medicare) do not generally
+provide dental coverage, so the payments for dental services
 come from insurance companies and from the patient out-of-pocket.
 Areas with older populations will spend more on dental care, since
 older people have more dental problems and also because of the
@@ -71,21 +76,32 @@ positive correlation between age and income/wealth. So, these are
 two demographic attributes that we interested in when considering a
 location.
 
-.. [#] Cite
+Using the datasets for the states of Kansas and Missouri, I calculated some
+statistics. Below is a snippet.
 
-Using the datasets for the states of Kansas and Missouri, I calculated some statistics.
-
-.. Insert table of statistics
+====== ===== =========== ======================== =========== ========================= ===============
+State  PUMA  Population  Median Household Income  Median Age  Percent Aged 60 or Older  Dental 
+                         (2016 Dollars)                                                 Practice Count
+====== ===== =========== ======================== =========== ========================= ===============
+20     100   109,867     $41,200                  41          26.7%                     NA
+20     200   147,564     $42,318                  41          25.7%                     NA
+20     300   134,983     $32,714                  26          12.2%                     NA
+20     400   122,120     $42,564                  37          20.5%                     NA
+20     500   161,762     $40,129                  33          16.5%                     63
+20     601   116,104     $81,513                  38          18.3%                     81
+20     602   153,179     $65,904                  37          22.5%                     152
+20     603   158,524     $69,349                  34          13.6%                     79
+20     604   144,839     $106,734                 39          18.9%                     171
+20     700   116,206     $26,172                  29          15.3%                     NA
+====== ===== =========== ======================== =========== ========================= ===============
 
 I also visualized this results using QGIS_.
 
-.. Insert color chart for income
+.. figure:: ./figures/median-household-income.png
+   :alt: Median Household Income
+   :align: center
 
-.. Insert color chart for age
-
-.. _QGIS: https://en.wikipedia.org/wiki/QGIS
-
-.. Add more discussion of charts
+   Higher median incomes are shown in darker shades.
 
 We see that the highest income areas in these two states are
 in the suburbs of Kansas City and Saint Louis, on the western
@@ -93,16 +109,26 @@ and eastern borders of Missouri. There are also slightly higher
 incomes in the suburbs of Topeka (in north–central Kansas) and
 Wichita (in south–central Kansas).
 
-We see higher ages in more rural regions, with some exceptions.
-In the areas where universities are located
-(the University of Kansas in Lawrence, the University of Missouri
-in Columbia, and Missouri State University in Springfield [?])
-we see a much lower median age than elsewhere.
+.. figure:: ./figures/median-age.png
+   :alt: Median Age
+   :align: center
 
-An outlier in both variables is southwest Kansas: it has unusually
+   Higher median ages are shown in darker shades.
+
+The median age is generally higher in more rural regions. In the
+areas where large universities are located, we see a much lower
+median age than elsewhere. The youthful patches on the plot can be
+explained by Kansas State University in Manhattan, the University
+of Kansas in Lawrence, the University of Missouri in Columbia, and
+Missouri State University in Springfield.
+
+An outlier in income and age is southwest Kansas: it has unusually
 high incomes and unusually young population for a rural area.
 My theory is that this is due to the petrolium industry in this
 region, attracting young workers and paying relatively high wages.
+[Or cattle/livestock/beef industry??]
+
+.. _QGIS: https://en.wikipedia.org/wiki/QGIS
 
 Competition
 -----------
@@ -122,17 +148,12 @@ Given the address of each dental practice, I used the `Open Street
 Map`_ Nominatim_ API to geocode each location, looking up the
 latitude and longitude coordinates for each street address.
 
-.. _`Open Street Map`: https://www.openstreetmap.org
-.. _Nominatim: https://wiki.openstreetmap.org/wiki/Nominatim
-
 The shapefiles_ provided by the Census Bureau for the PUMAs
 contain the boundaries of the geographic regions. Using the
 ``fiona`` Python library, we can easily open and manipulate
 shapefiles. In conjunction with the ``shapely`` library, we can
 find which PUMA each of the dental practices is located in, via
 its coordinates.
-
-.. _shapefiles: https://en.wikipedia.org/wiki/Shapefile
 
 After removing duplicate locations from our list of dental
 practices, we can then tabulate the number in practices in each
@@ -145,10 +166,17 @@ data embedded in the PUMA shapefiles. The ratio of population to
 the number of dental practices can be calculated and **overlayed
 on our income chart.**
 
-.. insert chart with practice counts as labels
+.. figure:: ./figures/practice-count.png
+   :alt: Population per Dental Practice
+   :align: center
 
-.. Add discussion of practice ratios
+   Population per dental practice in Kansas City area
 
+.. Add discussion of practice ratios. How many is good?
+
+.. _shapefiles: https://en.wikipedia.org/wiki/Shapefile
+.. _`Open Street Map`: https://www.openstreetmap.org
+.. _Nominatim: https://wiki.openstreetmap.org/wiki/Nominatim
 
 Future Directions
 -----------------
@@ -166,5 +194,3 @@ There also is little trust in the listings being current or
 complete. In the future, there may be better sources for this
 information, such as lists of in-network dental practitioners
 published by insurance companies.
-
-

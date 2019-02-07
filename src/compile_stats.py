@@ -12,7 +12,6 @@ def main(argv):
     ks_file = os.path.join(datadir, 'ks_puma_stats.csv')
     mo_file = os.path.join(datadir, 'mo_puma_stats.csv')
     practice_file = os.path.join(datadir, 'practice_stats.csv')
-    outfile = os.path.join(outdir, 'combined_stats.csv')
 
     # Read in state files, with index fields set
     ks_df = pd.read_csv(ks_file, index_col=['State', 'PUMA'])
@@ -26,12 +25,17 @@ def main(argv):
     pract_df.set_index(['State', 'PUMA'], inplace=True)
 
     # Join statistics by State and PUMA code
-    state_df = pd.concat([ks_df, mo_df], axis=0)
-    combined_df = state_df.join(pract_df, on=['State', 'PUMA'])
+    combined_df = pd.concat([ks_df, mo_df], axis=0)
+    combined_df = combined_df.join(pract_df, on=['State', 'PUMA'])
+
+    # Add UID
+    values = combined_df.index.values
+    concat = np.vectorize(lambda x: str(x[0]) + x[1])
+    UID = concat(values)
+    combined_df['UID'] = UID
 
     # Write out combined stats
-    combined_df.to_csv(outfile)
-
+    combined_df.to_csv(os.path.join(outdir, 'combined_stats.csv'))
 
 if __name__ == '__main__':
     main(sys.argv)

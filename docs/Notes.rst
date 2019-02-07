@@ -4,6 +4,10 @@ Notes
 Todo
 ----
 *   Writeup
+*   Re-do data join; add field concatenating state and PUMA codes;
+    update visualizations.
+    Instead: join practice counts of KS and MO individually.
+    Join individually in QGIS project. Then combined shapefiles.
 
 Won't Do
 ````````
@@ -73,11 +77,12 @@ Combined Shapefile Field Mapping
 KS-MO   Original
 ======  =================
 s	state
-1	population
-2	median hhi
-3	median age
-4	percent 60+
-5	practice count
+1       PUMA
+2	population
+3	median hhi
+4	median age
+5	percent 60+
+6	practice count
 ======  =================
 
 Lists of Dentists

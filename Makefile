@@ -27,5 +27,5 @@ models/practice_stats.csv: data/interim/dentist_loc.json
 	python src/practice_stats.py data/interim models
 
 # Compile statistics
-models/combined_stats.csv: models/ks_puma_stats.csv models/mo_puma_stats.csv models/practice_stats.csv
+models/combined_stats.csv models/ks_stats_joined.csv models/mo_stats_joined.csv: models/ks_puma_stats.csv models/mo_puma_stats.csv models/practice_stats.csv
 	python src/compile_stats.py models models
