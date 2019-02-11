@@ -109,7 +109,7 @@ I also visualized these results using QGIS_.
    :alt: Median Household Income
    :align: center
 
-   Higher median incomes are shown in darker shades.
+   Higher median household incomes are shown in darker shades.
 
 We see that the highest income areas in these two states are
 in the suburbs of Kansas City and Saint Louis, on the western
