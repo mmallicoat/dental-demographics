@@ -4,8 +4,8 @@
 :category: Projects
 :slug: dental-demographics
 
-Dental Demographics
-===================
+Introduction
+------------
 
 The profitability of a dental practice depends greatly on its
 geographic location. The demographics of the patient population
@@ -16,18 +16,16 @@ Another location-dependent factor is the amount of competition
 from other dental practices. An underserved area could be a good
 place to start a new practice.
 
-.. Revise following paragraph
-
 Most dental practices in the United States are privately owned.
-A sole dentist or partnership of dentists will finance
-the opening of a new dental practice themselves. Placing the
-practice in a location that it will be profitable is an important
-consideration.
+A sole dentist or partnership will finance the opening of a new
+dental practice themselves. Placing the practice in a location
+that will be profitable is an important part of their business
+strategy.
 
-These are concerns even for dentists who do not own their own
-practice. Dentists (in the United States) are usually paid as a
-percent of the amount of dental care they provide, which in turn
-is dependent of the amount of business the practice can bring in.
+This is a concern even for dentists who do not own their own
+practice. Dentists in the US are usually paid as a percent of the
+amount of dental care they provide, which in turn is dependent of
+the amount of business the practice can bring in.
 
 In order to find suitable locations for a new dental practice, I
 compiled demographic data from the US Census Bureau and records of
