@@ -4,10 +4,6 @@ Notes
 Todo
 ----
 *   Writeup
-*   Re-do data join; add field concatenating state and PUMA codes;
-    update visualizations.
-    Instead: join practice counts of KS and MO individually.
-    Join individually in QGIS project. Then combined shapefiles.
 
 Won't Do
 ````````
@@ -25,6 +21,10 @@ Maybe
 
 Done
 ````
+*   Re-do data join; add field concatenating state and PUMA codes;
+    update visualizations.
+    Instead: join practice counts of KS and MO individually.
+    Join individually in QGIS project. Then combined shapefiles.
 *   Visualizations in QGIS
 *   Collect additional dental location lat/long; and re-run PUMA lookup
 *   Count practices, not dentists; use address (including suite number)
@@ -89,6 +89,9 @@ Lists of Dentists
 -----------------
 
 *   https://www.healthgrades.com
+
+`Kansas survey of dentists per capita
+<http://www.kdheks.gov/hcf/data_consortium/data_consortium_health_indicators/health_indicators/access_to_care/health_professions/dentist_ratio/dentist_ratio_2008.htm>`__
 
 GIS Libraries
 -------------
