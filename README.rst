@@ -6,4 +6,6 @@ assess the suitability of a location for a dental practice. It
 relies on the American Community Survey published by the Census
 Bureau as well as other data sources.
 
-This is a work-in-progress.
+The write-up can be found at
+`<http://marshallmallicoat.com/subreddit-networks.html>`_ or in
+``reports/dental-demographics.rst``.
