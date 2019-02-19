@@ -33,9 +33,9 @@ existing practices from online business directories. I confined
 my search in the states of Kansas and Missouri, with a particular
 focus on the metropolitan area of Kansas City, Missouri.
 
-All of the code for this project can be found on Github_.
+All of the code for this project can be found on GitHub_.
 
-.. _Github: https://github.com/mmallicoat/dental-demographics
+.. _GitHub: https://github.com/mmallicoat/dental-demographics
 
 American Community Survey
 -------------------------
