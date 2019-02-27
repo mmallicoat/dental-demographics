@@ -7,5 +7,5 @@ relies on the American Community Survey published by the Census
 Bureau as well as other data sources.
 
 The write-up can be found at
-`<http://marshallmallicoat.com/subreddit-networks.html>`_ or in
+`<http://marshallmallicoat.com/dental-demographics.html>`_ or in
 ``reports/dental-demographics.rst``.
